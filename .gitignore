@@ -2,3 +2,4 @@
 .env
 .eslintrc.json
 config.json
+yarn.lock

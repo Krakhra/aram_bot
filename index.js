@@ -22,7 +22,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', async (interaction) => {
 	if (!interaction.isCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
@@ -30,6 +30,7 @@ client.on('interactionCreate', async interaction => {
 	if (!command) return;
 
 	try {
+        console.log(channel)
 		await command.execute(interaction);
 	} catch (error) {
 		console.error(error);

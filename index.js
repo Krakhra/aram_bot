@@ -1,8 +1,11 @@
 const dotenv = require("dotenv");
 const fs = require("fs");
 const { Client, Collection, Intents, BaseGuildVoiceChannel} = require("discord.js");
+const aram = require("./aram/aram_service")
 
 dotenv.config();
+
+aram.roll_champions()
 
 // Create a new client instance
 const client = new Client({

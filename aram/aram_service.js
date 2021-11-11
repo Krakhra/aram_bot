@@ -21,8 +21,8 @@ const create_embed = (t1, t2) => {
   }
   
   embed.addFields(
-    {name:"Team 1", value:team1String},
-    {name:"Team 2", value:team2String}
+    {name:"Team 1", value:team1String, inline:true},
+    {name:"Team 2", value:team2String, inline:true}
   )
   
   return embed;
@@ -44,7 +44,7 @@ module.exports = {
       while(champions[index] == undefined){
         index = Math.floor(Math.random() * (m - 0) + 0);
       }
-      
+
       //insert into alternating teams
       if (isTeam1) {
         team1.push(champions[index]);

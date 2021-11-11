@@ -5,8 +5,6 @@ const aram = require("./aram/aram_service")
 
 dotenv.config();
 
-aram.roll_champions()
-
 // Create a new client instance
 const client = new Client({
   intents: [

@@ -7,7 +7,7 @@ module.exports = {
     .setName("aram")
     .setDescription("rolls aram champions"),
   async execute(interaction) {
-    
-    await interaction.reply({ embeds: [exampleEmbed] });
+    embed = aram.roll_champions()
+    await interaction.reply({ embeds: [embed] });
   },
 };

@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const fs = require("fs");
 const { Client, Collection, Intents, BaseGuildVoiceChannel} = require("discord.js");
+const aram = require("./aram/aram_service")
 
 dotenv.config();
 

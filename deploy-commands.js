@@ -1,4 +1,4 @@
-// run this file to deploy new 
+// run this file to deploy new commands, need to add them in commands folder.
 const fs = require('fs');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');

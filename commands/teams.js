@@ -7,7 +7,6 @@ module.exports = {
     .setDescription("Generate two teams"),
   async execute(interaction, client) {
     embed = await teams.create_teams(client)
-    console.log("hi",embed)
     await interaction.reply({ embeds: [embed] });
   },
 };

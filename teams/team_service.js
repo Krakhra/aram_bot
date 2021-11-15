@@ -42,7 +42,7 @@ const random_teams = (members) => {
     //else randomize teams
     } else {
       // 50/50 
-      if (Math.random() === 0) {
+      if (Math.floor(Math.random()*2)  === 1) {
         obj["team1"].push(e);
       } else {
         obj["team2"].push(e);

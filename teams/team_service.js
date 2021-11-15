@@ -4,13 +4,21 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = {
-  async create_teams(client) {
+  async create_teams(interaction, client) {
 
     //go through guild manager to get the guild
-    let guilds = client.guilds.fetch(process.env.GUILD)
-    guilds.then((value)=>{
-        console.log(value.me.voice)
+    let guilds = await client.guilds.fetch(process.env.GUILD)
+    let channels = await guilds.channels.fetch()
+
+    //find channel with ppl in voice 
+    channels.map((e)=>{
+      //need to change this to 10
+      if(e.members.size >= 1 && e.type === "GUILD_VOICE"){
+        console.log(e.name)
+      }
     })
+
+    
 
     //returns a Guildmember class
     let member = guilds.me

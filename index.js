@@ -28,7 +28,7 @@ client.once("ready", () => {
   console.log("Ready!");
 
   //testing teams
-  //teams.create_teams(client);
+  teams.create_teams(null, client);
 });
 
 client.on("interactionCreate", async (interaction) => {

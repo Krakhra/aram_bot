@@ -1,15 +1,14 @@
 const dotenv = require("dotenv");
 const fs = require("fs");
-const { Client, Collection, Intents, BaseGuildVoiceChannel} = require("discord.js");
-const aram = require("./aram/aram_service")
+const { Client, Collection, Intents } = require("discord.js");
+const aram = require("./aram/aram_service");
+const teams = require("./teams/team_service");
 
 dotenv.config();
 
 // Create a new client instance
 const client = new Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-  ],
+  intents: [Intents.FLAGS.GUILDS],
 });
 
 client.commands = new Collection();
@@ -32,13 +31,12 @@ client.once("ready", () => {
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
 
-  const command = client.commands.get(interaction.commandName);
+  const command = await client.commands.get(interaction.commandName);
 
   if (!command) return;
 
   try {
-    console.log()
-    await command.execute(interaction);
+    await command.execute(interaction,client);
   } catch (error) {
     console.error(error);
     await interaction.reply({

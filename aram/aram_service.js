@@ -4,6 +4,7 @@ var champions_json = require("./champions.json");
 
 // takes both team pools and creates a discord embed
 const create_embed = (t1, t2) => {
+  console.log(t1,t2)
   let embed = new MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Just Wiped Out Tomato Town Aram")

@@ -1,7 +1,34 @@
-const { Client, Collection } = require("discord.js");
+const { MessageEmbed} = require("discord.js");
+
 const dotenv = require("dotenv");
 
 dotenv.config();
+
+const create_embed = (t1, t2) => {
+  console.log(t1,t2)
+  let embed = new MessageEmbed()
+    .setColor("#0099ff")
+    .setTitle("Just Wiped Out Tomato Town Aram")
+    .addFields(
+      { name: "Aram Bot 1.0", value: "Randomized Teams"},
+    )
+  
+  // string builder
+  let team1String = '';
+  let team2String = '';
+
+  for(let i = 0; i < t1.length;i++){
+    team1String += t1[i] + '\n'
+    team2String += t2[i] + '\n'
+  }
+  
+  embed.addFields(
+    {name:"Team 1", value:team1String, inline:true},
+    {name:"Team 2", value:team2String, inline:true}
+  )
+  
+  return embed;
+};
 
 const random_teams = (members) => {
   let obj = { team1: [], team2: [] };
@@ -27,7 +54,7 @@ const random_teams = (members) => {
 };
 
 module.exports = {
-  async create_teams(interaction, client) {
+  async create_teams(client) {
     //go through guild manager to get the guild
     let guilds = await client.guilds.fetch(process.env.GUILD);
     let channels = await guilds.channels.fetch();
@@ -59,8 +86,6 @@ module.exports = {
 
     let teams = random_teams(members);
 
-    console.log(teams);
-
-    //create an object with the teams
+    return create_embed(teams["team1"],teams["team2"])
   },
 };

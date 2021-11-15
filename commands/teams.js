@@ -5,8 +5,9 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("teams")
     .setDescription("Generate two teams"),
-  async execute(client) {
-    teams.create_teams(client)
-    await interaction.reply("helo");
+  async execute(interaction, client) {
+    embed = await teams.create_teams(client)
+    console.log("hi",embed)
+    await interaction.reply({ embeds: [embed] });
   },
 };

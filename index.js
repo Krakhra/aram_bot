@@ -26,20 +26,16 @@ for (const file of commandFiles) {
 // When the client is ready, run this code (only once)
 client.once("ready", () => {
   console.log("Ready!");
-
-  //testing teams
-  teams.create_teams(null, client);
 });
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
 
-  const command = client.commands.get(interaction.commandName);
+  const command = await client.commands.get(interaction.commandName);
 
   if (!command) return;
 
   try {
-    console.log();
     await command.execute(interaction,client);
   } catch (error) {
     console.error(error);

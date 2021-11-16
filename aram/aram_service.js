@@ -1,6 +1,6 @@
 const { Faces } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
-var champions_json = require("./champions.json");
+var champions_json = require("../getChampions/champions.json");
 
 // takes both team pools and creates a discord embed
 const create_embed = (t1, t2) => {
